@@ -38,7 +38,7 @@
 </li>
 </ul>
 <blockquote>
-<p><img src="http://image.dapaner.com/Snip20151007_17.png" alt="图一"></p>
+<p><img src="http://image.dapaner.top/Snip20151007_17.png" alt="图一"></p>
 </blockquote>
 <ul>
 <li>with 语句是从 Python 2.5 开始引入的一种与<strong>异常处理</strong>相关的功能,从 2.6 版本开始缺省可用（参考 What’s new in Python 2.6? 中 with 语句相关部分介绍）。with 语句适用于对资源进行访问的场合，确保不管使用过程中是否发生异常都会执行必要的“清理”操作，释放资源，比如文件使用后自动关闭、线程中锁的自动获取和释放等。——源自<a href="http://www.ibm.com/developerworks/cn/opensource/os-cn-pythonwith/" target="_blank" rel="noopener">《浅谈 Python 的 with 语句》</a></li>
@@ -52,22 +52,22 @@
 <p>相比于第一个例程里只有urllib.request模块，这次我们多导入了两个模块<strong>urllib.parse</strong>和<strong>json</strong>。先不管这些，让我们先来分析一下如何实现使用有道词典的在线翻译。</p>
 <p>打开Chrome进入有道翻译的页面，我们先简单看一下翻译“i love you”时，浏览器与服务器之间的交互，顺便了解我们的代码。</p>
 <p>进入“审查元素”页面，我们在输入完“i love you”之后点击翻译，看到“Network”下一大堆浏览器与服务器之间的交互。</p>
-<p><img src="http://image.dapaner.com/Snip20151007_18.png" alt="图二"></p>
+<p><img src="http://image.dapaner.top/Snip20151007_18.png" alt="图二"></p>
 <p>我们点击进入第一个浏览器向服务器提交的POST请求，来分析下想要用代码模拟人的操作，需要些什么。</p>
-<p><img src="http://image.dapaner.com/Snip20151006_11.png" alt="图三"><br><img src="http://image.dapaner.com/Snip20151006_12.png" alt="图四"></p>
+<p><img src="http://image.dapaner.top/Snip20151006_11.png" alt="图三"><br><img src="http://image.dapaner.top/Snip20151006_12.png" alt="图四"></p>
 <p>如上图所示，我们要代码实现交互，就要模拟浏览器，向服务器提交POST。那么如何完成呢，就要接住urlopen这个函数了。查看API文档，我们找到urlopen这个函数，看看他到底是如何使用的：</p>
-<p><img src="http://image.dapaner.com/Snip20151006_13.png" alt="图五"></p>
+<p><img src="http://image.dapaner.top/Snip20151006_13.png" alt="图五"></p>
 <p>urlopen函数在定义时可以传两个参数分别为<strong>url</strong>和<strong>data</strong>。url为我们实际需要访问的链接，这里要特别注意，url参数的值必须为图三中的Request URL梭织链接，而并非浏览器地址栏中的url。而data参数为字典类型，内容就是我们要向服务器提交的POST内容，也就是图四中From Data的内容了，于是我们在代码（第6~16行）中直接定义即可。</p>
 <p>这里还有一点需要注意，在代码的第18行，有关字符编码。我们的POST要以字符串编码的形式提交，而我们定义的却是字典类型的数据，这时候就要借助urllib.parse模块中的<strong>urlencode()</strong>函数来实现转义。格式为“utf-8”（.encode(‘utf-8’)）。</p>
-<p><img src="http://image.dapaner.com/Snip20151007_20.png" alt="图六"></p>
+<p><img src="http://image.dapaner.top/Snip20151007_20.png" alt="图六"></p>
 <p>好了。在爬取网页之前的准备工作就已经全部完成了，接下来我们进行爬取并打印response对象的内容：</p>
-<p><img src="http://image.dapaner.com/Snip20151006_14.png" alt="图七"></p>
+<p><img src="http://image.dapaner.top/Snip20151006_14.png" alt="图七"></p>
 <p>没有错，我们获得了json格式的内容，那什么是json，json模块中有哪些函数，它们又如何使用？</p>
-<p><img src="http://image.dapaner.com/Snip20151007_21.png" alt><br><img src="http://image.dapaner.com/Snip20151007_22.png" alt="图八"></p>
+<p><img src="http://image.dapaner.top/Snip20151007_21.png" alt><br><img src="http://image.dapaner.top/Snip20151007_22.png" alt="图八"></p>
 <p>接下来就是从json数据中提取出我们想要的内容了。使用<strong>json.loads()</strong>提取出字典后，打印就好了。</p>
-<p><img src="http://image.dapaner.com/Snip20151006_15.png" alt="图九"></p>
+<p><img src="http://image.dapaner.top/Snip20151006_15.png" alt="图九"></p>
 <p>最后来测试下整体的效果：</p>
-<p><img src="http://image.dapaner.com/Snip20151007_23.png" alt="图十"></p>
+<p><img src="http://image.dapaner.top/Snip20151007_23.png" alt="图十"></p>
 <hr>
 <h3 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h3><p>当我们用python爬虫进行一些比较密集的爬取（比如下载某网站的所有图片啊）时，服务器会对我们进行封锁，那么我们要如何继续疯狂的爬啊爬呢？</p>
 <p>没有错，就是使用代理。我们用很多个不同的ip地址去登陆服务器，这样服务器就会误认为是很多个不同的人在链接，所以就不会封锁你咯。再搭配上面提到的对Headers的设置，我们就可以快速的进行爬取了。</p>
@@ -86,11 +86,11 @@
 <p>我们还是一句一句的来分析，首先是我们要访问的域名，不多说。往下走，我们新建一个列表，来储存待用的ip地址。至于代理ip的话，网上有好多，百度一下，copy过来。</p>
 <p>接下来我们定义了一个proxy_support，后面用的是urllib.request.ProxyHandler()方法，从这一句开始，我们开始使用代理。然后我们自定义了一个opener，并且安装了它</p>
 <p>还是从文档开始看起：</p>
-<p><img src="http://image.dapaner.com/Snip20151012_54.png" alt="图十一"><br><img src="http://image.dapaner.com/Snip20151012_55.png" alt="图十二"></p>
+<p><img src="http://image.dapaner.top/Snip20151012_54.png" alt="图十一"><br><img src="http://image.dapaner.top/Snip20151012_55.png" alt="图十二"></p>
 <p>功能就是大概我们描述的样子。接下来的的大家都已经熟悉了，最后我们打印获得的网页HTML源码，来看我们到底用了什么ip地址去访问：</p>
-<p><img src="http://image.dapaner.com/Snip20151012_56.png" alt="图十三"></p>
+<p><img src="http://image.dapaner.top/Snip20151012_56.png" alt="图十三"></p>
 <p>再运行一次，看看，两次的访问ip可是不一样的咧。</p>
-<p><img src="http://image.dapaner.com/Snip20151012_57.png" alt="图十四"></p>
+<p><img src="http://image.dapaner.top/Snip20151012_57.png" alt="图十四"></p>
 <p>需要注意的一点是，这些代理ip可是每天都在变得，如果如果你想运行参考例程，最好是重新搜一下代理ip并更新代码中的iplist。</p>
 <hr>
 </div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ゴウサク</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://xdgcc.github.io/2015/10/06/从几只小爬虫开始/">https://xdgcc.github.io/2015/10/06/从几只小爬虫开始/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xdgcc.github.io">Corner&Coder</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post-qr-code"><div class="post-qr-code-item"><img class="post-qr-code__img" src="/wechatpay.jpg"><div class="post-qr-code__desc">微信赞赏码</div></div><div class="post-qr-code-item"><img class="post-qr-code__img" src="/alipay.jpg"><div class="post-qr-code__desc">支付宝赞赏码</div></div></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2015/10/12/iOS开发——Storyboard页面跳转/"><i class="fa fa-chevron-left">  </i><span>Storyboard页面跳转</span></a></div><div class="next-post pull-right"><a href="/2015/10/04/史上最完全Mac安装Scrapy指南/"><span>史上最完全Mac安装Scrapy指南</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({

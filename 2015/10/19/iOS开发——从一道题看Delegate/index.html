@@ -36,9 +36,9 @@
 <hr>
 <h3 id="界面搭建"><a href="#界面搭建" class="headerlink" title="界面搭建"></a>界面搭建</h3><p>有了先前我们使用Storyboard的经验，我们先很快的对界面进行搭建。先抛开所有的segue不管，先把题目中描述的情况展现出来再说。</p>
 <p>我们新建名为delegateSentValue的工程，在原有viewController的基础上再新建一个，同时新建名为viewController2的.h和.m文件，对它们进行关联。再向两个view中拖放组件，并且将它们关联到相应的文件。这个过程应该是很简单的，我们暂且不管需要响应事件的Button，只是将两个Lable和一个textFiled在两个.h文件中进行属性声明。完成后如下图：</p>
-<p><img src="http://image.dapaner.com/Snip20151019_72.png" alt><br><img src="http://image.dapaner.com/Snip20151019_73.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151019_72.png" alt><br><img src="http://image.dapaner.top/Snip20151019_73.png" alt></p>
 <p>搭建完成界面之后，我们先实现从Scene A到Scene B的跳转。通过“Ctrl+drag”操作，将Button与Scene B关联，设置为“modal”模式，然后我们选中这个Segue，将它的identifier命名为Segue_ID_AB。</p>
-<p><img src="http://image.dapaner.com/Snip20151019_74.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151019_74.png" alt></p>
 <p>我们可以先来运行下，这时我们可以实现通过点击按钮实现页面正向跳转的功能，点击输入框，我们可以接受键盘的输入。</p>
 <hr>
 <h3 id="Delegate应用"><a href="#Delegate应用" class="headerlink" title="Delegate应用"></a>Delegate应用</h3><p>我们所剩的任务还有输入内容，单击键盘上的“完成（return）”按钮，返回Scene A，并将刚才输入的内容显示在Scene A中。</p>
@@ -64,9 +64,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-(BOOL)textFieldShouldReturn:(UITextField *) textField&#123;</span><br><span class="line">    if (self.delegate) &#123;</span><br><span class="line">        //将UITextField内容传递给Delegate内的方法</span><br><span class="line">        [self.delegate viewController:self didInputed:self.inputInformation.text];</span><br><span class="line">        //让当前呈现的Scene B页面消失</span><br><span class="line">        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];</span><br><span class="line">    &#125;</span><br><span class="line">    //让键盘消失</span><br><span class="line">    [textField resignFirstResponder];</span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>仅仅添加代码是远远不够的，我们还要关联，具体做法是在Storyboard中，选中ViewController2中的TextFiled控件，采用“Ctrl+drag”操作将其与ViewController2关联。</p>
-<p><img src="http://image.dapaner.com/Snip20151019_75.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151019_75.png" alt></p>
 <p>在Outlets中选中delegate。</p>
-<p><img src="http://image.dapaner.com/Snip20151019_76.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151019_76.png" alt></p>
 <p>关于让键盘消失这个问题，我会单独写篇文章说明，在这里先占个坑。</p>
 <h4 id="关联委托者与被委托者"><a href="#关联委托者与被委托者" class="headerlink" title="关联委托者与被委托者"></a>关联委托者与被委托者</h4><p>明确这两者的关系在Delegate的应用中显得尤为重要，在ViewController.m中添加如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender&#123;</span><br><span class="line">    if ([segue.identifier isEqualToString:@&quot;Segue_ID_AB&quot;]) &#123;</span><br><span class="line">        ViewController2 *sceneBVC = segue.destinationViewController;</span><br><span class="line">        sceneBVC.delegate = self;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -88,7 +88,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-(void)viewController:(ViewController2 *)sceneBVC didInputed:(NSString *)string&#123;</span><br><span class="line">    self.showInformation.text = string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="测试与总结"><a href="#测试与总结" class="headerlink" title="测试与总结"></a>测试与总结</h3><p>先上图！</p>
-<p><img src="http://image.dapaner.com/Snip20151019_77.png" alt><br><img src="http://image.dapaner.com/Snip20151019_78.png" alt><br><img src="http://image.dapaner.com/Snip20151019_79.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151019_77.png" alt><br><img src="http://image.dapaner.top/Snip20151019_78.png" alt><br><img src="http://image.dapaner.top/Snip20151019_79.png" alt></p>
 <p>这样，我们就完整的解决了这个看似简单实际暗藏玄机的题目了。</p>
 <p>Delegate实现了不同场景之间的数据交互。它属于事件驱动的范畴，只有当某一事件触发时，Delegate才被调用。从这到例题中我们使用到的Delegate还只是很少的一部分，想要熟练的使用并且有深入的理解还需要更多的探索。</p>
 </div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ゴウサク</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://xdgcc.github.io/2015/10/19/iOS开发——从一道题看Delegate/">https://xdgcc.github.io/2015/10/19/iOS开发——从一道题看Delegate/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xdgcc.github.io">Corner&Coder</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/iOS/">iOS</a></div><div class="post-qr-code"><div class="post-qr-code-item"><img class="post-qr-code__img" src="/wechatpay.jpg"><div class="post-qr-code__desc">微信赞赏码</div></div><div class="post-qr-code-item"><img class="post-qr-code__img" src="/alipay.jpg"><div class="post-qr-code__desc">支付宝赞赏码</div></div></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2015/10/20/自定义并使用自己的ViewController/"><i class="fa fa-chevron-left">  </i><span>自定义并使用自己的ViewController</span></a></div><div class="next-post pull-right"><a href="/2015/10/12/iOS开发——Storyboard页面跳转/"><span>Storyboard页面跳转</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({

@@ -16,28 +16,28 @@
 <p><a href="http://www.cocoachina.com/cms/tags.php?/storyboard/" target="_blank" rel="noopener">CocoaChina_Storyboard</a></p>
 <hr>
 <h3 id="初识Storyboard"><a href="#初识Storyboard" class="headerlink" title="初识Storyboard"></a>初识Storyboard</h3><p>在最新版的Xcode7当中，项目新建时已经没有了原来的Empty Application（空应用），初学iOS的话，默认的最简单的模板是默认采用Storyboard开发的，所以Storyboard的使用势在必行，具体的介绍或者一些简单的用法网上很多，可以自行Google。</p>
-<p><img src="http://image.dapaner.com/Snip20151011_24.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151011_24.png" alt></p>
 <hr>
 <h3 id="Storyboard实现页面跳转"><a href="#Storyboard实现页面跳转" class="headerlink" title="Storyboard实现页面跳转"></a>Storyboard实现页面跳转</h3><p>网上去搜“Storyboard实现页面跳转”教程一大把，图文并茂甚是清楚，能够完成相应的功能，但是，按照图片做完这些步骤，虽然实现了功能，但是还是不明白Storyboard具体的实现机制。</p>
 <p>首先我们要明白的是，虽然在Storyboard中我们只需要通过简单的拖拉就可以将很多元素集成到我们的界面当中去，但是我们还需要将它们进行关联。这才是问题的关键所在。我们可以往Storyboard中添加ViewController，通过ViewController来管理界面，可是拖进来一个ViewController之后我们要在哪里写代码来控制这个ViewController呢？我们又该编写什么样的代码来实现相应的功能呢？这才是问题的关键所在。</p>
 <h4 id="Storyboard与ViewController的关联开始"><a href="#Storyboard与ViewController的关联开始" class="headerlink" title="Storyboard与ViewController的关联开始"></a>Storyboard与ViewController的关联开始</h4><p>那么，就从Storyboard与ViewController的关联开始。</p>
 <p>新建一个名为“learnStoryboard”的项目，为了以后演示方便，我们先取消它默认的视窗大小，改为适配我们的虚拟机ipnone机型大小。</p>
-<p><img src="http://image.dapaner.com/Snip20151012_27.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_27.png" alt></p>
 <p>改完后我们开始向Storyboard中添加一个ViewController。</p>
-<p><img src="http://image.dapaner.com/Snip20151012_28.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_28.png" alt></p>
 <p>好了。到此为止我们已经拥有了两个ViewController，一个是新建项目时系统默认为我们添加的，也是程序一运行就进入的根视图；另一个就是我们刚刚添加进去的了。我们可以看到左侧的navigato面板，我们的工程文件里面有两个ViewController.h和ViewController.m文件，他们就是对系统默认的ViewController进行控制的文件。那我们要做的就是依葫芦画瓢，自己创建对我们的ViewController的控制文件。</p>
 <p>在工程中新建Cocoa Touch Class模板，注意在Subclass选项中选择UIViewController。</p>
-<p><img src="http://image.dapaner.com/Snip20151012_30.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_30.png" alt></p>
 <p>新建完成之后我们可以看到这两个文件：</p>
-<p><img src="http://image.dapaner.com/Snip20151012_31.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_31.png" alt></p>
 <p>接下来就是最后一步了，两者的关联，其实挺简单的：</p>
-<p><img src="http://image.dapaner.com/Snip20151012_34.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_34.png" alt></p>
 <h4 id="ViewController有了，视图呢？"><a href="#ViewController有了，视图呢？" class="headerlink" title="ViewController有了，视图呢？"></a>ViewController有了，视图呢？</h4><p>在进行完对ViewController的关联后，我们先停一下，心急吃不了热豆腐嘛。先来分析分析ViewController到底是个什么东西，它又是怎么工作的。</p>
 <p>我们打开进入ViewController.h，看代码~</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line"></span><br><span class="line">@interface ViewController : UIViewController</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 
 <p>简简单单的三行，我们发现我们的ViewController类其实是继承自一个叫做UIViewController的类，那，追根溯源，command进去（按住command键点击）……然后就吓尿了有木有……怎么这么乱！</p>
-<p><img src="http://image.dapaner.com/Snip20151012_35.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_35.png" alt></p>
 <p>这时候不要慌，我们慢慢看，找到这一行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property(null_resettable, nonatomic,strong) UIView *view;</span><br></pre></td></tr></table></figure>
 
@@ -47,32 +47,32 @@
 <h4 id="添加控件，实现Storyboard页面跳转"><a href="#添加控件，实现Storyboard页面跳转" class="headerlink" title="添加控件，实现Storyboard页面跳转"></a>添加控件，实现Storyboard页面跳转</h4><p>说了那么多，开始我们正式的应用！</p>
 <p>就像添加ViewController那样，我们向两个ViewController中分别添加两个Button，命名为“下一页”和“上一页”。为了显示区别，我们分别向两个视图中再添加两个Image View，也让我们的小例子看上去更美观一些。</p>
 <p>添加完成之后是⬇️这个样子的，我们获得了这两个美美的视图，接下来就是进行跳转的关联了。</p>
-<p><img src="http://image.dapaner.com/Snip20151012_36.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_36.png" alt></p>
 <p>按住control键，点击“下一页”这个Button，拖向第二个ViewController：</p>
-<p><img src="http://image.dapaner.com/Snip20151012_39.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_39.png" alt></p>
 <p>选择页面跳转的方式：</p>
-<p><img src="http://image.dapaner.com/Snip20151012_40.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_40.png" alt></p>
 <p>选择完成之后，进行Storyboard Segue配置：</p>
-<p><img src="http://image.dapaner.com/Snip20151012_42.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_42.png" alt></p>
 <p>ok!这时候我们command+R，就已经可以实现从第一页到第二页的跳转了。接下来我们要实现的是从第二页点击“上一页”按钮，来返回第一页。</p>
 <p>那，你会不会说，这还不简单，像上面那样操作就好了。</p>
 <p>呵呵。</p>
 <p>是不是不行，是不是出错了？</p>
 <p>我想说明一点的是，我们不能单单只学会用Storyboard这种傻瓜式的操作（暂且称之为傻瓜式，其实并不是）来完成UI编程。前文已经提到了，最好的方式是<strong>Storyboard+代码</strong>来进行UI编程。那么对于“返回上一页”这一功能，我们就得用Storyboard+代码的方式来实现。</p>
 <p>我们首先用上面的方法创建从”下一页“这个Button到第一页的关联。</p>
-<p><img src="http://image.dapaner.com/Snip20151012_48.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_48.png" alt></p>
 <p>然后打开辅助的编辑页面：</p>
-<p><img src="http://image.dapaner.com/Snip20151012_44.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_44.png" alt></p>
 <p>进入后，我们现在可以同时看到Storyboard编辑页面和SecondViewController.m编辑页面，我们按下control键，单击SecondViewController中的“上一页”Button拖入SecondViewController.m代码中，位置如下</p>
-<p><img src="http://image.dapaner.com/Snip20151012_45.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_45.png" alt></p>
 <p>接下来SecondViewController.m文件会自动生成一段返回值类型为“IBAction“的函数代码，用来捕捉SecondViewController中的Button按钮点击以后的事件，其实就是一个事件监听。我们要对这个方法进行命名，为表示清楚，我们这里命名为”backToFirst“，点击”connect“，代码就会生成了。</p>
-<p><img src="http://image.dapaner.com/Snip20151012_46.png" alt><br><img src="http://image.dapaner.com/Snip20151012_47.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_46.png" alt><br><img src="http://image.dapaner.top/Snip20151012_47.png" alt></p>
 <p>好了，Button对象已经和代码相关联了，我们怎样完成功能呢？上代码！</p>
 <p>编辑SecondViewController.m，在刚才生成的backToFirst方法中添加如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self performSegueWithIdentifier:@&quot;toFirst&quot; sender:self];</span><br></pre></td></tr></table></figure>
 
 <p>没有错，我们在<code>performSegueWithIdentifier</code>的第一个参数传入了上面我们创建的”下一页“这个Button到第一页的关联的Segue的标示符。意义就是通过这个Segue去往想去的视图。</p>
-<p><img src="http://image.dapaner.com/Snip20151012_51.png" alt><br><img src="http://image.dapaner.com/Snip20151012_52.png" alt></p>
+<p><img src="http://image.dapaner.top/Snip20151012_51.png" alt><br><img src="http://image.dapaner.top/Snip20151012_52.png" alt></p>
 <p>这样，我们就完成了界面的跳转了。</p>
 <hr>
 </div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ゴウサク</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://xdgcc.github.io/2015/10/12/iOS开发——Storyboard页面跳转/">https://xdgcc.github.io/2015/10/12/iOS开发——Storyboard页面跳转/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xdgcc.github.io">Corner&Coder</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/iOS/">iOS</a></div><div class="post-qr-code"><div class="post-qr-code-item"><img class="post-qr-code__img" src="/wechatpay.jpg"><div class="post-qr-code__desc">微信赞赏码</div></div><div class="post-qr-code-item"><img class="post-qr-code__img" src="/alipay.jpg"><div class="post-qr-code__desc">支付宝赞赏码</div></div></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2015/10/19/iOS开发——从一道题看Delegate/"><i class="fa fa-chevron-left">  </i><span>从一道题看Delegate</span></a></div><div class="next-post pull-right"><a href="/2015/10/06/从几只小爬虫开始/"><span>从几只小爬虫开始</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
