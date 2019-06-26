@@ -7,7 +7,7 @@
     error: '复制错误',
     noSupport: '浏览器不支持'
   }
-} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#是什么"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么"><span class="toc-number">2.</span> <span class="toc-text">为什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎么做"><span class="toc-number">3.</span> <span class="toc-text">怎么做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础知识准备"><span class="toc-number">3.1.</span> <span class="toc-text">基础知识准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复杂度分析"><span class="toc-number">3.1.1.</span> <span class="toc-text">复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间复杂度——大O表示法"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">时间复杂度——大O表示法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#几种常见的时间复杂度"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">几种常见的时间复杂度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#空间复杂度"><span class="toc-number">3.1.1.3.</span> <span class="toc-text">空间复杂度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构与算法的基础实现（随时补充）"><span class="toc-number">3.1.2.</span> <span class="toc-text">数据结构与算法的基础实现（随时补充）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据结构："><span class="toc-number">3.1.2.1.</span> <span class="toc-text">数据结构：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#算法"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#leetcode题目（随时补充）"><span class="toc-number">3.1.3.</span> <span class="toc-text">leetcode题目（随时补充）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据结构：-1"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">数据结构：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#算法-1"><span class="toc-number">3.1.3.2.</span> <span class="toc-text">算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#刷题"><span class="toc-number">3.2.</span> <span class="toc-text">刷题</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">ゴウサク</div><div class="author-info__description text-center">听听歌 码码字</div><div class="follow-button"><a href="https://github.com/xdgcc">Follow Me In GitHub</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">10</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">7</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">5</span></a></div></div></div><div id="content-outer"><div class="plain" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Corner&amp;Coder</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a></span></div></div><div class="layout" id="content-inner"><article id="post"><div class="plain" id="post-title">一起愉快的leetcode</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-06-23</time><span class="post-meta__separator">|</span><i class="fa fa-inbox" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/算法/"> 算法</a><span class="post-meta__separator">|</span><span class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">4.2k</span><span class="post-meta__separator">|</span><span>阅读时长: 13 分钟</span></span></div><div class="article-container" id="post-content"><p>写这篇分享的时候，回忆起上大学那会儿的算法课，现在想起来都瑟瑟发抖。课本是三大圣经之一的《算法导论》，我们一群刚从从新手村里出来的弱鸡，看着前面这座大山，内心十分抗拒。那会儿的想法是，学这个有用吗？其实不光是算法，西电在本科期间设置的课程大多不涉及工程领域，四年时间，三年半都在学数据结构、算法、计算机导论、编译原理、计算机网络这些CS专业基础课，而且由于在当时看来这些课程本身没有太大联系，学的时候内心是充满困惑的。但现在看来，还是那时太年轻啊，工作之后面临的新技术，其实一点儿都不“新”。那些所谓的新技术，核心和本质的东西其实就是当初学的那些基础知识。掌握了这些基础之后，学任何东西都很快。现在我的理解是，<strong>基础知识就是大楼的地基，它决定我们的技术高度。</strong></p>
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#是什么"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么"><span class="toc-number">2.</span> <span class="toc-text">为什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎么做"><span class="toc-number">3.</span> <span class="toc-text">怎么做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础知识准备"><span class="toc-number">3.1.</span> <span class="toc-text">基础知识准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复杂度分析"><span class="toc-number">3.1.1.</span> <span class="toc-text">复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间复杂度——大O表示法"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">时间复杂度——大O表示法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#几种常见的时间复杂度"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">几种常见的时间复杂度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#空间复杂度"><span class="toc-number">3.1.1.3.</span> <span class="toc-text">空间复杂度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构与算法的概念-amp-基础实现（随时补充）"><span class="toc-number">3.1.2.</span> <span class="toc-text">数据结构与算法的概念&amp;基础实现（随时补充）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据结构："><span class="toc-number">3.1.2.1.</span> <span class="toc-text">数据结构：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#算法"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#leetcode题目（随时补充）"><span class="toc-number">3.1.3.</span> <span class="toc-text">leetcode题目（随时补充）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据结构：-1"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">数据结构：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#算法-1"><span class="toc-number">3.1.3.2.</span> <span class="toc-text">算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#刷题"><span class="toc-number">3.2.</span> <span class="toc-text">刷题</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">ゴウサク</div><div class="author-info__description text-center">听听歌 码码字</div><div class="follow-button"><a href="https://github.com/xdgcc">Follow Me In GitHub</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">10</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">9</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">4</span></a></div></div></div><div id="content-outer"><div class="plain" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Corner&amp;Coder</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a></span></div></div><div class="layout" id="content-inner"><article id="post"><div class="plain" id="post-title">一起愉快的leetcode</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-06-23</time><span class="post-meta__separator">|</span><i class="fa fa-inbox" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/算法/"> 算法</a><span class="post-meta__separator">|</span><span class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">5k</span><span class="post-meta__separator">|</span><span>阅读时长: 15 分钟</span></span></div><div class="article-container" id="post-content"><p>写这篇分享的时候，回忆起上大学那会儿的算法课，现在想起来都瑟瑟发抖。课本是三大圣经之一的《算法导论》，我们一群刚从从新手村里出来的弱鸡，看着前面这座大山，内心十分抗拒。那会儿的想法是，学这个有用吗？其实不光是算法，西电在本科期间设置的课程大多不涉及工程领域，四年时间，三年半都在学数据结构、算法、计算机导论、编译原理、计算机网络这些CS专业基础课，而且由于在当时看来这些课程本身没有太大联系，学的时候内心是充满困惑的。但现在看来，还是那时太年轻啊，工作之后面临的新技术，其实一点儿都不“新”。那些所谓的新技术，核心和本质的东西其实就是当初学的那些基础知识。掌握了这些基础之后，学任何东西都很快。现在我的理解是，<strong>基础知识就是大楼的地基，它决定我们的技术高度。</strong></p>
 <h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>当你准备开始学习、回炉算法的时候，你已经意识到它是什么了。</p>
 <h1 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h1><p>当然是为了用。</p>
 <p><strong>1、最直接的就是能够写出高性能的代码。</strong></p>
@@ -121,10 +121,28 @@
 
 <p>上面这个，第 2 行，申请了一个空间储存 i ，算是额外空间，但是跟我们的数据规模 n 没有关系，所以直接忽略。第 3 行申请了大小为 n 的空间，这个算 O(n) ，除此之外没有占用额外的空间了，所以时候这段代码的空间复杂度为 O(n) 。</p>
 <p>需要注意的是，在刷leetcode的时候，我们其实关注的更多的空间复杂度在于某段代码执行时所需要的额外空间，比如给个简单的数组排序，题目中给出的目标数组本身所占用的空间我们可以忽略，比如冒泡排序这种不需要开辟额外的辅助空间的算法空间复杂度就是 O(1) ，快排这种需要额外的辅助空间的，就需要 O(nlogn) 了。</p>
-<h3 id="数据结构与算法的基础实现（随时补充）"><a href="#数据结构与算法的基础实现（随时补充）" class="headerlink" title="数据结构与算法的基础实现（随时补充）"></a>数据结构与算法的基础实现（随时补充）</h3><p>初次刷题或者对于我们而言，按照数据结构和算法分成多个小的模块，选取部分模块进行刷题就足够了，很多难度偏大和用得比较少的也不用去浪费时间在上面。</p>
+<h3 id="数据结构与算法的概念-amp-基础实现（随时补充）"><a href="#数据结构与算法的概念-amp-基础实现（随时补充）" class="headerlink" title="数据结构与算法的概念&amp;基础实现（随时补充）"></a>数据结构与算法的概念&amp;基础实现（随时补充）</h3><p>概念和特性还是要比较熟练的掌握的，要不然下面的流程走不下去了。。当然，一些基础结构的基础实现也是应该熟记于心的，要不然真到了写代码的时候要用某个结构，发现这个结构怎么实现都写半天写不出来。。。那就基本gg了，有再好的算法思路都没用。</p>
 <h4 id="数据结构："><a href="#数据结构：" class="headerlink" title="数据结构："></a>数据结构：</h4><ul>
-<li>数组</li>
-<li>链表</li>
+<li><p>数组</p>
+<ul>
+<li><p>数组的索引为什么从0开始？</p>
+<p>挺有意思的一个小东西：</p>
+<p>数组在实现随机访问的时候，比如a[i]是怎么访问的。“索引”或者“下标”的本质其实应该是<strong>“偏移量”</strong>。</p>
+<p>数组的访问下标从0开始与从1开始的区别，其实本质上是 <strong>a[i]_address = base_address + i * type_size</strong> 与 <strong>a[i]_address = base_address + (i-1)*type_size</strong> 的区别。如果 a 是数组在内存中的首地址，那么访问 a[i] 时，计算其地址的公式分别为上面那俩。可以看到，后者多了一次减法运算。</p>
+<p>深入到CPU的层面，这里就多了一次减法指令，其实好像也没什么问题。。。对于现在的CPU来说差别好像不是很大，但要知道数组作为最基础的数据结构之一，其随机访问又是很基础的操作之一，效率的优化是要尽可能做到极致的，越往底层越是这样。上面提到了减法指令，为什么说多一个减法指令就会影响效率的问题，原因呢涉及到一部分《计组》的知识，关于CPU是怎么通过ALU完成最基本的加减操作的，这个不多展开。写到这里突然想起两个事儿，一个是当年被《计组》支配的恐惧，二是后来发现的网易公开课上<a href="http://open.163.com/movie/2018/5/M/S/MDGEPAQ4K_MDGET74MS.html" target="_blank" rel="noopener">一套关于CS的科普类型的专辑视频</a>，挺好玩的，覆盖面比较全，虽然没那么系统、细致，但是我看前面讲计算机底层的一些底层概念的部分还是相当相当不错的，通俗易懂还有动画，比尼玛啃大部头的《计组》舒服多了，后悔当年刚学《计组》的时候咋没发现呢。。。大学一个学期整明白都费劲的东西，十几分钟就给你安排的明明白白。。。po张图感受下，墙裂推荐给大伙儿~   </p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://image.dapaner.top/Snip20190627_26.png" alt></p>
+<ul>
+<li>链表<ul>
+<li>单链表实现</li>
+<li>双向链表实现</li>
+<li>循环链表实现</li>
+<li>。。。     </li>
+</ul>
+</li>
 <li>栈</li>
 <li>队列</li>
 <li>散列表</li>
@@ -147,21 +165,38 @@
 <li>字符串匹配</li>
 <li>。。。</li>
 </ul>
-<h3 id="leetcode题目（随时补充）"><a href="#leetcode题目（随时补充）" class="headerlink" title="leetcode题目（随时补充）"></a>leetcode题目（随时补充）</h3><h4 id="数据结构：-1"><a href="#数据结构：-1" class="headerlink" title="数据结构："></a>数据结构：</h4><ul>
-<li>数组<ul>
-<li><a href="https://leetcode-cn.com/problems/two-sum/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/two-sum/</a></li>
-<li><a href="https://leetcode-cn.com/problems/find-the-duplicate-number/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-duplicate-number/</a></li>
+<h3 id="leetcode题目（随时补充）"><a href="#leetcode题目（随时补充）" class="headerlink" title="leetcode题目（随时补充）"></a>leetcode题目（随时补充）</h3><p>初次刷题或者对于我们而言，按照数据结构和算法分成多个小的模块，选取部分模块进行刷题就足够了，很多难度偏大和用得比较少的也不用去浪费时间在上面。</p>
+<h4 id="数据结构：-1"><a href="#数据结构：-1" class="headerlink" title="数据结构："></a>数据结构：</h4><ul>
+<li><p>数组</p>
+<ul>
+<li><p>两数之和：<a href="https://leetcode-cn.com/problems/two-sum/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/two-sum/</a></p>
+</li>
+<li><p>查找重复数字：<a href="https://leetcode-cn.com/problems/find-the-duplicate-number/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-duplicate-number/</a></p>
+<p>上面这个查找重复数字题有一个更基础一点的，来自《剑指offer》：</p>
+<blockquote>
+<p>在一个长度为 n 的数组里的所有数字都在 0 到 n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字是重复的，也不知道每个数字重复几次。请找出数组中任意一个重复的数字,要求:复杂度为 O(N) + O(1)。例如，如果输入长度为 7 的数组 {2, 3, 1, 6, 0, 2, 5}，那么对应的输出是第一个重复的数字 2。注意：如果某些数字不在 0 ~ n-1 的范围内，或者数组中不包含重复的数字，则返回 -1。</p>
+</blockquote>
+</li>
 </ul>
 </li>
-<li>链表</li>
-<li>栈</li>
-<li>队列</li>
-<li>散列表</li>
-<li>二叉树</li>
-<li>Trie树</li>
-<li>堆</li>
-<li>图</li>
-<li>。。。</li>
+<li><p>链表</p>
+</li>
+<li><p>栈</p>
+</li>
+<li><p>队列</p>
+</li>
+<li><p>散列表</p>
+</li>
+<li><p>二叉树</p>
+</li>
+<li><p>Trie树</p>
+</li>
+<li><p>堆</p>
+</li>
+<li><p>图</p>
+</li>
+<li><p>。。。</p>
+</li>
 </ul>
 <h4 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h4><ul>
 <li>递归</li>
