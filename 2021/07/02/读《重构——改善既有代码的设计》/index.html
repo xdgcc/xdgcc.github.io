@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="读《重构——改善既有代码的设计》"><meta name="keywords" content="读书笔记"><meta name="author" content="ゴウサク"><meta name="copyright" content="ゴウサク"><title>读《重构——改善既有代码的设计》 | Corner&amp;Coder</title><link rel="shortcut icon" href="/xdgcc.jpg"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css?version=1.6.1"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script><meta name="generator" content="Hexo 6.1.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number">1.</span> <span class="toc-text">Tips</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%87%8D%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">什么是重构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">为什么重构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%95%E6%97%B6%E9%87%8D%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">何时重构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%95%E6%97%B6%E4%B8%8D%E5%BA%94%E8%AF%A5%E9%87%8D%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text">何时不应该重构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E6%9E%84%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-number">6.</span> <span class="toc-text">重构的挑战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E6%9E%84%E4%B8%8E%E6%9E%B6%E6%9E%84%E3%80%81%E8%87%AA%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E3%80%81%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90"><span class="toc-number">7.</span> <span class="toc-text">重构与架构、自测试代码、持续集成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93"><span class="toc-number">8.</span> <span class="toc-text">代码的坏味道</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%87%8D%E6%9E%84"><span class="toc-number">9.</span> <span class="toc-text">如何重构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B8%B8%E7%94%A8"><span class="toc-number">9.0.1.</span> <span class="toc-text">最常用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85"><span class="toc-number">9.0.2.</span> <span class="toc-text">封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AC%E7%A7%BB%E7%89%B9%E6%80%A7"><span class="toc-number">9.0.3.</span> <span class="toc-text">搬移特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E7%BB%84%E7%BB%87%E6%95%B0%E6%8D%AE"><span class="toc-number">9.0.4.</span> <span class="toc-text">重新组织数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8C%96%E6%9D%A1%E4%BB%B6%E9%80%BB%E8%BE%91"><span class="toc-number">9.0.5.</span> <span class="toc-text">简化条件逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%9E%84API"><span class="toc-number">9.0.6.</span> <span class="toc-text">重构API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB"><span class="toc-number">9.0.7.</span> <span class="toc-text">处理继承关系</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">ゴウサク</div><div class="author-info__description text-center">听听歌 码码字</div><div class="follow-button"><a target="_blank" rel="noopener" href="https://github.com/xdgcc">Follow Me In GitHub</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">16</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">10</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a></div></div></div><div id="content-outer"><div class="plain" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Corner&amp;Coder</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a></span></div></div><div class="layout" id="content-inner"><article id="post"><div class="plain" id="post-title">读《重构——改善既有代码的设计》</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-07-02</time><span class="post-meta__separator">|</span><i class="fa fa-inbox" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%83%BD%E5%8A%9B/"> 基础能力</a><span class="post-meta__separator">|</span><span class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.9k</span><span class="post-meta__separator">|</span><span>阅读时长: 6 分钟</span></span></div><div class="article-container" id="post-content"><h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>重构后即运行测试。小步修改，每次修改后就运行测试，每次成功的重构后就提交代码，可以轻松地回滚到上一个可工作的状态。<br>好代码的检验标准就是人们能否能轻易的修改它。<br>软件的性能通常至于代码的一小部分相关，改变其他的部分往往对总体性能贡献甚微。对于重构过程中产生的性能问题，大多数情况下可以忽略它，先完成重构，再做性能优化。<br>编写软件是一个累加的过程，添加新功能最快的方法往往是先修改现有的代码，使新功能容易被加入。<br>当你感觉需要撰写注释时，请先尝试重构，试着让所有的注释都变得多余。<br>编写优良的测试程序，可以极大地提高编程速度，即使不进行重构也是如此。<br>类应该包含它们自己的测试代码。</p>
+<h1 id="什么是重构"><a href="#什么是重构" class="headerlink" title="什么是重构"></a>什么是重构</h1><p>重构不应指代任何形式的代码清理，而应是运用大量微小且保持软件行为的步骤，一步步达成大规模的修改。期间代码应很少进入不可工作的状态。<br>重构与性能优化相比，两者都需要修改代码，都不会改变程序的整体功能。差别在于目的，重构是为了让代码“更容易理解，更容易修改”，这可能是程序更快，或者更慢。而性能优化则是为了使程序运行更快。</p>
+<h1 id="为什么重构"><a href="#为什么重构" class="headerlink" title="为什么重构"></a>为什么重构</h1><p>改进软件的设计<br>使软件容易理解<br>帮助找到bug<br>提高编程速度</p>
+<h1 id="何时重构"><a href="#何时重构" class="headerlink" title="何时重构"></a>何时重构</h1><p><code>事不过三，三则重构</code></p>
+<p>见机行事的重构——并不安排一段专门的时间进行重构，而是添加新功能或者修复bug时顺便重构。<br>预备性重构：最佳时机在添加新功能前。经常发现：如果对现有代码结构做一点微调，工作会变得容易的多。<br>帮助理解的重构：搞不懂这段代码在干什么，为了能清晰地理解。<br>捡垃圾式重构：我已经懂了这段代码在干什么，但他实在写的太烂了。眼下有空顺手重构了，眼下没空小本本记下来，后面再来清理。</p>
+<p>有计划的重构——某个区域的问题逐渐积累长大，需要专门找一段时间处理肮脏的代码。但大部分重构应该是见机行事的。</p>
+<h1 id="何时不应该重构"><a href="#何时不应该重构" class="headerlink" title="何时不应该重构"></a>何时不应该重构</h1><p>丑陋的代码被隐藏在一个API下，而我不需要理解其运行原理。<br>如果重写比重构还容易，就别重构了！</p>
+<h1 id="重构的挑战"><a href="#重构的挑战" class="headerlink" title="重构的挑战"></a>重构的挑战</h1><p>重构是耗费时间的，它可能延缓新功能的开发。有时候是这样的，功能小而重构多。这需要做出取舍和权衡。但长远来看，重构应该还是能够创造更大的价值的。<br>重构不仅会影响参与重构的人，而且会影响整个团队的其他协同开发着，甚至是不同团队的开发者，关联方的影响会妨碍重构。<br>工作流的科学合理性很重要，代码的分支合并操作会带来很多问题。CI和重构能够良好配合，是有最佳实践的。<br>不改变程序可观察的行为，是重构的一个重要特征。要做到这一点关键在于如何快速的发现错误并修正。</p>
+<h1 id="重构与架构、自测试代码、持续集成"><a href="#重构与架构、自测试代码、持续集成" class="headerlink" title="重构与架构、自测试代码、持续集成"></a>重构与架构、自测试代码、持续集成</h1><p>增量式设计（YAGNI, you aren’t going to need it），架构应该是能在不断重构中优化的<br>自测试代码是重构的基石<br>自测试代码、持续集成、重构——彼此之间有着很强的协同效应。</p>
+<h1 id="代码的坏味道"><a href="#代码的坏味道" class="headerlink" title="代码的坏味道"></a>代码的坏味道</h1><ol>
+<li>神秘命名</li>
+<li>重复代码</li>
+<li>过长函数</li>
+<li>过长参数列表</li>
+<li>全局数据</li>
+<li>可变数据（要约束对数据的更新）</li>
+<li>发散式变化（每次应只关心一个上下文，不同逻辑应分属不同模块）</li>
+<li>霰弹式修改（遇到某种变化需要在许多不同的类内做出许多小修改，难找且容易遗漏）</li>
+<li>依恋情节（一个函数与另一个模块的某个函数数据交流格外频繁，甚至超过自己所处模块的内部）</li>
+<li>数据泥潭（？？？）</li>
+<li>基本类型偏执（为了显示电话号码，用字符串代表电话号码数据，“类字符串类型变量”，是如此常见的臭味）</li>
+<li>重复的switch</li>
+<li>循环语句（以管道？取代循环）</li>
+<li>冗赘的元素（简化，瘦身）</li>
+<li>夸夸其谈通用性（hook、钩子）</li>
+<li>临时字段</li>
+<li>过长消息链</li>
+<li>中间人</li>
+<li>内幕交易（把数据交换放在明面上）</li>
+<li>过大的类</li>
+<li>异曲同工的类</li>
+<li>纯数据类</li>
+<li>被拒绝的遗赠（子类复用了超类的行为，却不愿意支持超类的接口）</li>
+<li>注释（长长的注释之所以存在往往是因为代码很糟糕，重构后会发现，注释变的多余了）</li>
+</ol>
+<h1 id="如何重构"><a href="#如何重构" class="headerlink" title="如何重构"></a>如何重构</h1><h3 id="最常用"><a href="#最常用" class="headerlink" title="最常用"></a>最常用</h3><ol>
+<li>提炼函数（Extract Function）</li>
+<li>内联函数（Inline Function）</li>
+<li>提炼变量（Extract Variable）</li>
+<li>内联变量（Inline Variable）</li>
+<li>改变函数声明（Change Function Declaration）</li>
+<li>封装变量（Encapsulate Variable）</li>
+<li>变量改名（Rename Variable） </li>
+<li>引入参数对象（Introduce Parameter Object） </li>
+<li>函数组合成类（Combine Functions into Class） </li>
+<li>函数组合成变换（Combine Functions into Transform）</li>
+<li>拆分阶段（Split Phase）</li>
+</ol>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><ol>
+<li>封装记录（Encapsulate Record） </li>
+<li>封装集合（Encapsulate Collection） </li>
+<li>以对象取代基本类型（Replace Primitive with Object） </li>
+<li>以查询取代临时变量（Replace Temp with Query） </li>
+<li>提炼类（Extract Class）</li>
+<li>内联类（Inline Class） </li>
+<li>隐藏委托关系（Hide Delegate） </li>
+<li>移除中间人（Remove Middle Man） </li>
+<li>替换算法（Substitute Algorithm）</li>
+</ol>
+<h3 id="搬移特性"><a href="#搬移特性" class="headerlink" title="搬移特性"></a>搬移特性</h3><ol>
+<li>搬移函数（Move Function） </li>
+<li>搬移字段（Move Field） </li>
+<li>搬移语句到函数（Move Statements into Function） </li>
+<li>搬移语句到调用者（Move Statements to Callers） </li>
+<li>以函数调用取代内联代码（Replace Inline Code with Function Call） </li>
+<li>移动语句（Slide Statements） </li>
+<li>拆分循环（Split Loop） </li>
+<li>以管道取代循环（Replace Loop with Pipeline）</li>
+</ol>
+<h3 id="重新组织数据"><a href="#重新组织数据" class="headerlink" title="重新组织数据"></a>重新组织数据</h3><ol>
+<li>拆分变量（Split Variable） </li>
+<li>字段改名（Rename Field） </li>
+<li>以查询取代派生变量（Replace Derived Variable with Query） </li>
+<li>将引用对象改为值对象（Change Reference to Value） </li>
+<li>将值对象改为引用对象（Change Value to Reference）</li>
+</ol>
+<h3 id="简化条件逻辑"><a href="#简化条件逻辑" class="headerlink" title="简化条件逻辑"></a>简化条件逻辑</h3><ol>
+<li>分解条件表达式（Decompose Conditional） </li>
+<li>合并条件表达式（Consolidate Conditional Expression） </li>
+<li>以卫语句取代嵌套条件表达式（Replace Nested Conditional with Guard Clauses） </li>
+<li>以多态取代条件表达式（Replace Conditional with Polymorphism） </li>
+<li>引入特例（Introduce Special Case） </li>
+<li>引入断言（Introduce Assertion）</li>
+</ol>
+<h3 id="重构API"><a href="#重构API" class="headerlink" title="重构API"></a>重构API</h3><ol>
+<li>将查询函数和修改函数分离（Separate Query from Modifier） </li>
+<li>函数参数化（Parameterize Function） </li>
+<li>移除标记参数（Remove Flag Argument） </li>
+<li>保持对象完整（Preserve Whole Object） </li>
+<li>以查询取代参数（Replace Parameter with Query） </li>
+<li>以参数取代查询（Replace Query with Parameter） </li>
+<li>移除设值函数（Remove Setting Method） </li>
+<li>以工厂函数取代构造函数（Replace Constructor with Factory Function） </li>
+<li>以命令取代函数（Replace Function with Command） </li>
+<li>以函数取代命令（Replace Command with Function）</li>
+</ol>
+<h3 id="处理继承关系"><a href="#处理继承关系" class="headerlink" title="处理继承关系"></a>处理继承关系</h3><ol>
+<li>函数上移（Pull Up Method） </li>
+<li>字段上移（Pull Up Field） </li>
+<li>构造函数本体上移（Pull Up Constructor Body） </li>
+<li>函数下移（Push Down Method） </li>
+<li>字段下移（Push Down Field） </li>
+<li>以子类取代类型码（Replace Type Code with Subclasses） </li>
+<li>移除子类（Remove Subclass） </li>
+<li>提炼超类（Extract Superclass） </li>
+<li>折叠继承体系（Collapse Hierarchy） </li>
+<li>以委托取代子类（Replace Subclass with Delegate） </li>
+<li>以委托取代超类（Replace Superclass with Delegate）</li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ゴウサク</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dapaner.top/2021/07/02/%E8%AF%BB%E3%80%8A%E9%87%8D%E6%9E%84%E2%80%94%E2%80%94%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1%E3%80%8B/">http://dapaner.top/2021/07/02/%E8%AF%BB%E3%80%8A%E9%87%8D%E6%9E%84%E2%80%94%E2%80%94%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1%E3%80%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dapaner.top">Corner&Coder</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></div><div class="post-qr-code"><div class="post-qr-code-item"><img class="post-qr-code__img" src="/wechatpay.jpg"><div class="post-qr-code__desc">微信赞赏码</div></div><div class="post-qr-code-item"><img class="post-qr-code__img" src="/alipay.jpg"><div class="post-qr-code__desc">支付宝赞赏码</div></div></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/07/03/Leetcode.%20%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-left">  </i><span>Leetcode. 链表</span></a></div><div class="next-post pull-right"><a href="/2019/07/10/%E8%AF%BB%E3%80%8A%E7%A6%85%E4%B8%8E-Objective-C-%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF%E3%80%8B/"><span>读《禅与 Objective-C 编程艺术》</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '84913d96f60653d72440',
+  clientSecret: '82a93cdaf171e21c709424447f3a207b107faddd',
+  repo: 'xdgcc.github.io',
+  owner: 'xdgcc',
+  admin: 'xdgcc',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2015 - 2022 By ゴウサク</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">粤ICP备19063859号</a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="愉快的leetcode"><meta name="keywords" content="leetcode"><meta name="author" content="ゴウサク"><meta name="copyright" content="ゴウサク"><title>愉快的leetcode | Corner&amp;Coder</title><link rel="shortcut icon" href="/xdgcc.jpg"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css?version=1.6.1"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script><meta name="generator" content="Hexo 6.1.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88"><span class="toc-number">2.</span> <span class="toc-text">为什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%81%9A"><span class="toc-number">3.</span> <span class="toc-text">怎么做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%87%86%E5%A4%87"><span class="toc-number">3.1.</span> <span class="toc-text">基础知识准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-number">3.1.1.</span> <span class="toc-text">复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E2%80%94%E2%80%94%E5%A4%A7O%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">时间复杂度——大O表示法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">几种常见的时间复杂度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">3.1.1.3.</span> <span class="toc-text">空间复杂度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%9A%84%E6%A6%82%E5%BF%B5-amp-%E5%9F%BA%E7%A1%80%E5%AE%9E%E7%8E%B0%EF%BC%88%E9%9A%8F%E6%97%B6%E8%A1%A5%E5%85%85%EF%BC%89"><span class="toc-number">3.1.2.</span> <span class="toc-text">数据结构与算法的概念&amp;基础实现（随时补充）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">数据结构：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#leetcode%E9%A2%98%E7%9B%AE%EF%BC%88%E9%9A%8F%E6%97%B6%E8%A1%A5%E5%85%85%EF%BC%89"><span class="toc-number">3.1.3.</span> <span class="toc-text">leetcode题目（随时补充）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A-1"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">数据结构：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95-1"><span class="toc-number">3.1.3.2.</span> <span class="toc-text">算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E9%A2%98"><span class="toc-number">3.2.</span> <span class="toc-text">刷题</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">ゴウサク</div><div class="author-info__description text-center">听听歌 码码字</div><div class="follow-button"><a target="_blank" rel="noopener" href="https://github.com/xdgcc">Follow Me In GitHub</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">16</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">10</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a></div></div></div><div id="content-outer"><div class="plain" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Corner&amp;Coder</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a></span></div></div><div class="layout" id="content-inner"><article id="post"><div class="plain" id="post-title">愉快的leetcode</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-06-23</time><span class="post-meta__separator">|</span><i class="fa fa-inbox" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/"> 算法</a><span class="post-meta__separator">|</span><span class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">5.4k</span><span class="post-meta__separator">|</span><span>阅读时长: 17 分钟</span></span></div><div class="article-container" id="post-content"><p>写这篇分享的时候，回忆起上大学那会儿的算法课，现在想起来都瑟瑟发抖。课本是三大圣经之一的《算法导论》，我们一群刚从从新手村里出来的弱鸡，看着前面这座大山，内心十分抗拒。那会儿的想法是，学这个有用吗？其实不光是算法，西电在本科期间设置的课程大多不涉及工程领域，四年时间，三年半都在学数据结构、算法、计算机导论、编译原理、计算机网络这些CS专业基础课，而且由于在当时看来这些课程本身没有太大联系，学的时候内心是充满困惑的。但现在看来，还是那时太年轻啊，工作之后面临的新技术，其实一点儿都不“新”。那些所谓的新技术，核心和本质的东西其实就是当初学的那些基础知识。掌握了这些基础之后，学任何东西都很快。现在我的理解是，<strong>基础知识就是大楼的地基，它决定我们的技术高度。</strong></p>
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>当你准备开始学习、回炉算法的时候，你已经意识到它是什么了。</p>
+<h1 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h1><p>当然是为了用。</p>
+<p><strong>1、最直接的就是能够写出高性能的代码。</strong></p>
+<p>对于iOSer来说，尤其我们平时做业务为主，感觉平时用到算法的地方不多，但只不过是苹果爸爸给我们封装好了而已，我们用的很多API，底层的东西都涉及到了数据结构和算法，只不过我们不用动手去实现。相较于后端来说可能自己用算法实现一些东西的机会会多一些。我就以我个人的经验举几个栗子🌰说明一下：</p>
+<p>先说一个前两天碰到的，就咱们孕管的代码。帖子详情页的实现有四个地方存在内存问题，其中这个比较严重的直接导致在某些机型上内存撑爆gg。</p>
+<p><img src="http://image.dapaner.top/WX20190627-160937.png"></p>
+<p>ok，那么问题来了，也是一个经典的关于OC内存管理的iOS面试题：ARC下的 autoreleasepool 是什么，怎么用，它是怎么实现的？这里只说它的实现。</p>
+<p>autoreleasepool的本质，或者说实现是一个<strong>与线程绑定的、以栈为节点的双向链表</strong>，很明显，它利用了链表的两个特性或者说优点才能达到帮我们释放内存的工作，即<strong>采用动态存储分配，不会造成内存浪费和溢出</strong>；<strong>执行插入和删除操作十分方便，是修改指针的操作，不需要移动大量元素</strong>。</p>
+<p>通常情况下，我们是不需要手动添加 autoreleasepool 的，使用线程自动维护的 autoreleasepool 就好了。根据苹果官方文档中对 <a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmAutoreleasePools.html#//apple_ref/doc/uid/20000047-CJBFBEDI">Using Autorelease Pool Blocks</a> 的描述，我们知道在下面三种情况下是需要我们手动添加 autoreleasepool 的：</p>
+<p><img src="http://image.dapaner.top/Snip20190623_8.png"></p>
+<p>回到孕管代码里这个问题，属于第二种情况，PHForumDetialItemAnalysis 的set方法中，有大量的计算，而且创建了大量的占用内存的临时变量并且没有及时释放，导致了这个问题。</p>
+<p>再说一个后端的栗子🌰吧，这个其实更具有代表性。场景是去年在上家公司”不务正业“去重写了公司的新的搜索后端服务。先简单列一下战果吧：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>资源占用（服务器配置）</th>
+<th>搜索效率 &amp; 搜索质量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>老搜索</td>
+<td>8核16G内存</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>新搜索</td>
+<td>双核4G内存</td>
+<td>巨幅提升</td>
+</tr>
+</tbody></table>
+<p>搜索服务是高内存需求的，重写后的新搜索在资源占用和搜索质量上都有了明显的提高。原因在哪呢，还是因为具体的实现有本质区别。<br>老的搜索是纯代码实现，没有借助任何的开源搜索引擎，大部分搜索相关功能是 <strong>数据库（MySQL）</strong> 和 <strong>redis</strong> 来实现的，索引丢在redies的cache里面，在公司业务初期数据量不大的情况下也还ok，能撑得住，但是到后面公司的数据积累越来越大，老的搜索执行效率就开始出现问题了。所以才有了要重写新搜索的需求。</p>
+<p>经过初期技术调研后，考虑到公司实际的业务和数据规模，新搜索决定基于 <strong>Elasticsearch</strong> 来做，关于 Elasticsearch 这里就不多说了，其实运维用的比较多，属于比较常见的ELK架构的一部分，很多用来搞日志分析的。新搜索之所以较老搜索有速度上的巨幅提升，根本原因还是在于 MySQL 和 Elasticsearch 索引方式的不同——Elasticsearch 使用的 <strong>倒排索引</strong> 比 MySQL 的 <strong>B-Tree索引</strong> 快。</p>
+<p>呐，那么这两种索引算法的使用就是至关重要的了。关于倒排索引，它又包含了很多的数据结构和算法在里面。。。</p>
+<p>所以说，<strong>掌握了数据结构与算法，看待问题的深度，解决问题的角度和方式就会完全不一样</strong>。</p>
+<p><strong>2、大厂面试必备。</strong></p>
+<p>我觉得，这两个理由，足够了。当然作为程序员的”内功“，还有更多理由去学习数据结构和算法，就不多提了。高手闯荡江湖，哪怕一招儿鲜，那也得是内功深厚的一招儿鲜。</p>
+<h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><p>第一步注册leetcode账号：<br><a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/">英文版</a> or <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problemset/all/">中文版</a></p>
+<p>其实区别不大，之前中文版的题目稍微少些，现在同步的差不多了。而且现在英文版账号已经可以同步到中文版了。<br>简单的了解一下这个网站的使用： <a target="_blank" rel="noopener" href="https://support.leetcode-cn.com/hc/kb/category/1018381/">leetcode入门指南</a></p>
+<h2 id="基础知识准备"><a href="#基础知识准备" class="headerlink" title="基础知识准备"></a>基础知识准备</h2><p>其实从前面也可以看出来，数据结构和算法是不分家的。它们都<strong>是前人从很多实际操作场景中抽象出来的</strong>，都是些比较经典的东西。之前说基础就是地基，下面介绍一下打地基所用的材料们：</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>为什么要进行代码的复杂度分析？其实把代码跑过一遍以后通过一些比如IDE的监控啊什么的我们就能知道这段代码的执行效率了，包括用时啊、内存占用啊、CPU占用啊之类的，但这都属于事后诸葛。。。而且有很大的局限性：</p>
+<ol>
+<li>受测试环境（比如硬件配置）影响大。同一段代码，不同机器运行，我配置牛逼就是跑的快，充钱的自然是爸爸，这在哪都是同样的道理，简单粗暴。</li>
+<li>受测试数据不同而影响大。就拿排序来讲，比如对同一个排序算法而言，测试用例的有序度不一样，在相同环境下执行时间肯定是不同的；再比如不同的排序算法，由于数据规模不一样，很可能执行时间的结果也有较大差异，就几个数据排排序，可能插入排序就比快排快，但是你能说插入排序就是比快排快吗？数据量上万、上千万的时候呢？</li>
+</ol>
+<p>综上，我们必须要做马前卒而不是马后炮，需要一个<strong>不依赖测试环境</strong>、<strong>不依赖测试数据</strong>、<strong>不需要代码执行</strong>就能衡量代码执行效率的标准或者方法，就是<strong>时间复杂度</strong>和<strong>空间复杂度</strong>分析。</p>
+<h4 id="时间复杂度——大O表示法"><a href="#时间复杂度——大O表示法" class="headerlink" title="时间复杂度——大O表示法"></a>时间复杂度——大O表示法</h4><p>时间复杂度可以简单地理解为<strong>执行这段代码所需要的时间</strong>。</p>
+<p>举个栗子🌰先：</p>
+<p>一个非常简单的求0~n的和的代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">	<span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; i &lt;= n; i++) &#123;</span><br><span class="line">		sum = sum + i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根据计算机组成原理里的相关知识，从 CPU 的角度来看，这段代码的每一行，CPU 都要进行以下操作：<strong>读数据-运算-写数据</strong>。当然了，每行代码对应的 CPU 执行次数、执行的时间都不一样，但是这里只是粗略估计，所以可以假设每行代码执行的时间都一样，为一个单位时间常数 t。在这个假设的基础之上，来看下这段代码的总执行时间是多少。</p>
+<p>第 2、3 行代码分别需要 1 个 t 的执行时间，第 4、5 行都运行了 n 遍，所以需要 2n*t 的执行时间，所以这段代码总的执行时间就是 T(n) &#x3D;<font color=#FF0000> (2n+2) </font> *t 。可以看出来， T(n) 与每行代码的执行次数 n 成正比。</p>
+<p>再来个循环嵌套的代码瞅瞅：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">	<span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; i &lt;= n; i++) &#123;</span><br><span class="line">		j = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (; j &lt;= n; ++j) &#123;</span><br><span class="line">			sum = sum +  i * j;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第 2、3、4 行代码，每行都需要 1 个 t 的执行时间，第 5、6 行代码循环执行了 n 遍，需要 2n*t 的执行时间，第 7、8 行代码循环执行了 n^2 遍，所以需要 2n^2 *t 的执行时间。所以，整段代码总的执行时间 T(n) &#x3D; <font color=#FF0000> (2n^2 + 2n+3) </font>*t。同样，T(n) 与每行代码的执行次数 n 也成正比 。</p>
+<p>尽管我们不知道单位时间 t 的具体时长，但我们能看出来：<strong>一段代码的执行时间 &#x3D; 代码总执行次数*单位时间</strong> ,总结成一个公式就是大O表示法了：</p>
+<center> T(n) = O(f(n)) </center>
+
+<p>具体解释一下这个公式。其中，T(n) 表示代码执行的时间；n 表示数据规模的大小；f(n) 表示每行代码执行的次数总和。因为这是一个公式，所以用 f(n) 来表示，就是上面的<font color=#FF0000>红色部分</font>。公式中的 O，表示代码的执行时间 T(n) 与 f(n) 表达式成正比，就是单位时间的 t 倍。</p>
+<p>所以，替换一下就可以知道：第一个栗子🌰中的 T(n) &#x3D; O(2n+2)，第二个栗子🌰中的 T(n) &#x3D; O(2n^2+2n+3)。这就是大 O 时间复杂度表示法。大 O 时间复杂度实际上并不具体表示代码真正的执行时间，而是<strong>表示代码执行时间随数据规模增长的变化趋势</strong>，所以，也叫作<strong>渐进时间复杂度（asymptotic time complexity）</strong>，简称时间复杂度。</p>
+<p>其实很简单，当 n 很大时，决定多项式规模的是多项式中最高阶单项式。所以我们可以忽略多项式中低阶、常量、系数三部分，只需要记录一个最大量级就可以了，如果用大 O 表示法表示刚讲的那两段代码的时间复杂度，就可以简记为：</p>
+<center> T(n) = O(n) </center>
+
+<center> T(n) = O(n^2 ) </center>
+
+<p>到这里剩下的事儿其实很简单了，上面是讲原理所以看上去很复杂，其实上面那两段代码打眼一看就知道复杂度是多少：</p>
+<ul>
+<li><p>只关注循环次数对多的那段代码</p>
+</li>
+<li><p>加法法则——总复杂度等于量级最大的那段代码的复杂度</p>
+<ul>
+<li>比如上面那两段代码放在一个方法里面，那这个新的方法的复杂度就是由后面那段代码决定的，也是 O(n^2 )</li>
+</ul>
+</li>
+<li><p>乘法法则——嵌套代码的复杂度等于嵌套内外代码复杂度的乘积</p>
+<ul>
+<li>还是上面那哥儿俩，比如在第一个方法的循环中调用了第二个方法，则 T(n) &#x3D; T1(n) * T2(n^2 ) &#x3D; O(n*n^2 ) &#x3D; O(n^3 )</li>
+</ul>
+</li>
+</ul>
+<p>关于这个 <strong>大O</strong> 有很多图和文章总结比较各种数据结构、算法的复杂度以及不同复杂度的对比，google一下 <a target="_blank" rel="noopener" href="https://www.google.com/search?q=big+o+cheat+sheet">big o cheat sheet</a> 巨多，可以去看下。这张来自 <a target="_blank" rel="noopener" href="https://bigocheatsheet.com/">bigocheatsheet.com</a> 的比较著名的一张图po一下：</p>
+<p><img src="http://image.dapaner.top/C4dP_w5UcAAP_hb.jpg"></p>
+<h4 id="几种常见的时间复杂度"><a href="#几种常见的时间复杂度" class="headerlink" title="几种常见的时间复杂度"></a>几种常见的时间复杂度</h4><p>这里主要列几种常见的多项式类型的时间复杂度，非多项式类型的 O(2^n ) 和 O(n!) ,当数据规模 n 越来越大时，这哥儿俩执行时间会急剧增加，无限增长，效率十分低下，就不多提了。</p>
+<ul>
+<li>O(1)</li>
+</ul>
+<p>O(1) 只是常量级时间复杂度的一种表示方法，并不是指只执行了一行代码，它与输入数据的规模无关。比如这段代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">sum</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">8</span>;</span><br><span class="line"> 	<span class="type">int</span> j = <span class="number">6</span>;</span><br><span class="line"> 	<span class="type">int</span> sum = i + j;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一般情况下，只要算法中不存在循环语句、递归语句，即使有成千上万行的代码，其时间复杂度也是Ο(1)。</p>
+<ul>
+<li>O(logn)、O(nlogn)</li>
+</ul>
+<p>对数阶的这种其实很常见，但又贼难看，很恶心。举个栗子🌰看下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">	i = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt;= n)  &#123;</span><br><span class="line">		i = i * <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还是看循环次数先，第 4 行这个语句决定什么时候跳出循环。i 每次循环的值变化为：2、4、8、16…即 k 次循环后值为 2^k 。跳出循环的条件为 i &lt;&#x3D; n 则求执行了多少次 k 为：2^k &#x3D; n , k &#x3D; log<sub>2</sub>n 。所以这段代码的时间复杂度就是 O(log<sub>2</sub>n) 。</p>
+<p>同理，下面这段代码的时间复杂度就是 O(log<sub>3</sub>n) 。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">	i = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt;= n)  &#123;</span><br><span class="line">		i = i * <span class="number">3</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里就有个说法了，根据换底公式，对数是可以互相转化的，因为 log<sub>3</sub>n &#x3D; log<sub>3</sub>2 * log<sub>2</sub>n ，所以 O(log<sub>3</sub>n) &#x3D; O(常数*log<sub>2</sub>n) ，又因为我们可以忽略系数，所以这种对数的时间复杂度统一表示为O(logn) 。</p>
+<p>O(nlogn) 就是根据前面乘法法则来的，O(logn) 中嵌套了个循环就变 O(nlogn) 。</p>
+<ul>
+<li>O(n)、O(n^k )</li>
+</ul>
+<p>这个不说了。。。就是几层循环的问题。。。</p>
+<h4 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h4><p>这个就比较好理解了，就是某段代码运行所占用的空间。还是举个栗子🌰：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">print</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span>[] a = new <span class="type">int</span>[n];</span><br><span class="line">	<span class="keyword">for</span> (i; i &lt;n; ++i) &#123;</span><br><span class="line">		a[i] = i * i;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = n<span class="number">-1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">		print out a[i]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这个，第 2 行，申请了一个空间储存 i ，算是额外空间，但是跟我们的数据规模 n 没有关系，所以直接忽略。第 3 行申请了大小为 n 的空间，这个算 O(n) ，除此之外没有占用额外的空间了，所以时候这段代码的空间复杂度为 O(n) 。</p>
+<p>需要注意的是，在刷leetcode的时候，我们其实关注的更多的空间复杂度在于某段代码执行时所需要的额外空间，比如给个简单的数组排序，题目中给出的目标数组本身所占用的空间我们可以忽略，比如冒泡排序这种不需要开辟额外的辅助空间的算法空间复杂度就是 O(1) ，快排这种需要额外的辅助空间的，就需要 O(nlogn) 了。</p>
+<h3 id="数据结构与算法的概念-amp-基础实现（随时补充）"><a href="#数据结构与算法的概念-amp-基础实现（随时补充）" class="headerlink" title="数据结构与算法的概念&amp;基础实现（随时补充）"></a>数据结构与算法的概念&amp;基础实现（随时补充）</h3><p>概念和特性还是要比较熟练的掌握的，要不然下面的流程走不下去了。。当然，一些基础结构的基础实现也是应该熟记于心的，要不然真到了写代码的时候要用某个结构，发现这个结构怎么实现都写半天写不出来。。。那就基本gg了，有再好的算法思路都没用。</p>
+<h4 id="数据结构："><a href="#数据结构：" class="headerlink" title="数据结构："></a>数据结构：</h4><ul>
+<li><p>数组</p>
+<ul>
+<li>数组的索引为什么从0开始？</li>
+</ul>
+<p>  挺有意思的一个小东西：</p>
+<p>  数组在实现随机访问的时候，比如a[i]是怎么访问的。“索引”或者“下标”的本质其实应该是<strong>“偏移量”</strong>。</p>
+<p>  数组的访问下标从0开始与从1开始的区别，其实本质上是 <strong>a[i]_address &#x3D; base_address + i * type_size</strong> 与 *<em>a[i]_address &#x3D; base_address + (i-1)<em>type_size</em></em> 的区别。如果 a 是数组在内存中的首地址，那么访问 a[i] 时，计算其地址的公式分别为上面那俩。可以看到，后者多了一次减法运算。</p>
+<p>  深入到CPU的层面，这里就多了一次减法指令，其实好像也没什么问题。。。对于现在的CPU来说差别好像不是很大，但要知道数组作为最基础的数据结构之一，其随机访问又是很基础的操作之一，效率的优化是要尽可能做到极致的，越往底层越是这样。上面提到了减法指令，为什么说多一个减法指令就会影响效率的问题，原因呢涉及到一部分《计组》的知识，关于CPU是怎么通过ALU完成最基本的加减操作的，这个不多展开。写到这里突然想起两个事儿，一个是当年被《计组》支配的恐惧，二是后来发现的网易公开课上<a target="_blank" rel="noopener" href="http://open.163.com/movie/2018/5/M/S/MDGEPAQ4K_MDGET74MS.html">一套关于CS的科普类型的专辑视频</a>，挺好玩的，覆盖面比较全，虽然没那么系统、细致，但是我看前面讲计算机底层的一些底层概念的部分还是相当相当不错的，通俗易懂还有动画，比尼玛啃大部头的《计组》舒服多了，后悔当年刚学《计组》的时候咋没发现呢。。。大学一个学期整明白都费劲的东西，十几分钟就给你安排的明明白白。。。po张图感受下，墙裂推荐给大伙儿~</p>
+</li>
+</ul>
+<p><img src="http://image.dapaner.top/Snip20190627_26.png"></p>
+<ul>
+<li><p>链表</p>
+<ul>
+<li>单链表、双向链表、循环链表实现以及基本的CURD操作</li>
+</ul>
+<p>  这里要特别注意边界条件的处理，特别是对头节点、尾节点、空链表的处理。建议引入<strong>哨兵节点</strong>简化部分判空操作。</p>
+<p>  很多情况下，需要处理当前节点的前驱节点，如果是没有哨兵节点的链表，对第一个节点，即头节点，没有前驱节点。如果不作特殊处理，就可能出错；如果对它特别对待，就会增加代码复杂性，还会降低程序效率。而如果有哨兵节点的话， 线性表的每个位置的节点都有前驱节点，因此可以统一处理。这时候在考虑边界条件的时候往往只需要关注尾节点就好，省去了一些麻烦。</p>
+<p>  ”哨兵“的应用除了在这里还有几个比较常见的情况，比如快排我们选取的基点就是一个哨兵，上面提到的 autoreleasepool 的实现原理中，OC也是通过”哨兵“来解决autoreleasepool的嵌套问题的，回头看完栈结构的时候可以再多聊一下。</p>
+<ul>
+<li>应用场景较多，往往链表会结合其他数据结构一起使用，比如拿散列表作链表的节点来实现高效的LRU算法等。</li>
+</ul>
+</li>
+<li><p>栈</p>
+</li>
+<li><p>队列</p>
+</li>
+<li><p>散列表</p>
+</li>
+<li><p>二叉树</p>
+</li>
+<li><p>Trie树</p>
+</li>
+<li><p>堆</p>
+</li>
+<li><p>图</p>
+</li>
+<li><p>。。。</p>
+</li>
+</ul>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><ul>
+<li>递归</li>
+<li>排序</li>
+<li>二分查找</li>
+<li>搜索</li>
+<li>哈希</li>
+<li>贪心</li>
+<li>分治</li>
+<li>回溯</li>
+<li>动态规划</li>
+<li>字符串匹配</li>
+<li>。。。</li>
+</ul>
+<h3 id="leetcode题目（随时补充）"><a href="#leetcode题目（随时补充）" class="headerlink" title="leetcode题目（随时补充）"></a>leetcode题目（随时补充）</h3><p>初次刷题或者对于我们而言，按照数据结构和算法分成多个小的模块，选取部分模块进行刷题就足够了，很多难度偏大和用得比较少的也不用去浪费时间在上面。</p>
+<h4 id="数据结构：-1"><a href="#数据结构：-1" class="headerlink" title="数据结构："></a>数据结构：</h4><ul>
+<li><p>数组</p>
+<ul>
+<li>两数之和：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/">https://leetcode-cn.com/problems/two-sum/</a></li>
+<li>查找重复数字：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-the-duplicate-number/">https://leetcode-cn.com/problems/find-the-duplicate-number/</a></li>
+</ul>
+<p>  上面这个查找重复数字题有一个更基础一点的，来自《剑指offer》：</p>
+<blockquote>
+<p>在一个长度为 n 的数组里的所有数字都在 0 到 n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字是重复的，也不知道每个数字重复几次。请找出数组中任意一个重复的数字,要求:复杂度为 O(N) + O(1)。例如，如果输入长度为 7 的数组 {2, 3, 1, 6, 0, 2, 5}，那么对应的输出是第一个重复的数字 2。注意：如果某些数字不在 0 ~ n-1 的范围内，或者数组中不包含重复的数字，则返回 -1。
+  </p>
+</blockquote>
+</li>
+<li><p>链表</p>
+<ul>
+<li>删除链表的倒数第N个节点：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/</a></li>
+<li>合并两个有序链表：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-two-sorted-lists/">https://leetcode-cn.com/problems/merge-two-sorted-lists/</a></li>
+<li>环形链表：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">https://leetcode-cn.com/problems/linked-list-cycle/</a></li>
+<li>反转链表：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-linked-list/">https://leetcode-cn.com/problems/reverse-linked-list/</a></li>
+<li>链表的中间结点：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/middle-of-the-linked-list/">https://leetcode-cn.com/problems/middle-of-the-linked-list/</a></li>
+</ul>
+</li>
+<li><p>栈</p>
+</li>
+<li><p>队列</p>
+</li>
+<li><p>散列表</p>
+</li>
+<li><p>二叉树</p>
+</li>
+<li><p>Trie树</p>
+</li>
+<li><p>堆</p>
+</li>
+<li><p>图</p>
+</li>
+<li><p>。。。</p>
+</li>
+</ul>
+<h4 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h4><ul>
+<li>递归</li>
+<li>排序</li>
+<li>二分查找</li>
+<li>搜索</li>
+<li>哈希</li>
+<li>贪心</li>
+<li>分治</li>
+<li>回溯</li>
+<li>动态规划</li>
+<li>字符串匹配</li>
+<li>。。。</li>
+</ul>
+<h2 id="刷题"><a href="#刷题" class="headerlink" title="刷题"></a>刷题</h2><p>理想很丰满：看题——有思路——设计算法——写代码——通过</p>
+<p><img src="http://image.dapaner.top/WX20190623-152918.png-small"> </p>
+<p>显示很骨感：看题——这啥啊——不会啊——想不出来啊——算了算了</p>
+<p><img src="http://image.dapaner.top/Snip20190623_9.png"></p>
+<p>为了避免被题恶心晕的情况，给大家推荐一个刷题思路吧：</p>
+<ol>
+<li>读题</li>
+<li>。。。直接看答案，没错，直接看答案</li>
+<li>背答案手书默写</li>
+<li>leetcode作答，搞定一个解法</li>
+<li>多思路、多解法</li>
+<li>复杂度优化</li>
+<li>二刷、三刷、四刷、五刷。。。。</li>
+</ol>
+<p>需要注意的一点是，leetcode的测试用例会有考虑边界与极端情况，所以我们在写代码的时候也要考虑到，健壮性还是很重要的~</p>
+<p><strong>最后，祝各位刷的愉快 ^.^</strong></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ゴウサク</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dapaner.top/2019/06/23/%E6%84%89%E5%BF%AB%E7%9A%84leetcode/">http://dapaner.top/2019/06/23/%E6%84%89%E5%BF%AB%E7%9A%84leetcode/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dapaner.top">Corner&Coder</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/leetcode/">leetcode</a></div><div class="post-qr-code"><div class="post-qr-code-item"><img class="post-qr-code__img" src="/wechatpay.jpg"><div class="post-qr-code__desc">微信赞赏码</div></div><div class="post-qr-code-item"><img class="post-qr-code__img" src="/alipay.jpg"><div class="post-qr-code__desc">支付宝赞赏码</div></div></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2019/07/10/%E8%AF%BB%E3%80%8A%E7%A6%85%E4%B8%8E-Objective-C-%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF%E3%80%8B/"><i class="fa fa-chevron-left">  </i><span>读《禅与 Objective-C 编程艺术》</span></a></div><div class="next-post pull-right"><a href="/2019/06/14/%E9%87%8D%E6%96%B0%E8%B5%B7%E9%A3%9E/"><span>重新起飞</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '84913d96f60653d72440',
+  clientSecret: '82a93cdaf171e21c709424447f3a207b107faddd',
+  repo: 'xdgcc.github.io',
+  owner: 'xdgcc',
+  admin: 'xdgcc',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2015 - 2022 By ゴウサク</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">粤ICP备19063859号</a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
