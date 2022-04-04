@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://dapaner.top/2022/04/04/test/</loc>
-    
-    <lastmod>2022-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://dapaner.top/2021/07/03/Leetcode.%20%E9%93%BE%E8%A1%A8/</loc>
     
     <lastmod>2021-08-15</lastmod>
@@ -189,13 +180,6 @@
   </url>
   
   <url>
-    <loc>http://dapaner.top/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA-%E6%8E%92%E5%BA%8F/</loc>
-    <lastmod>2022-04-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://dapaner.top/tags/Python/</loc>
     <lastmod>2022-04-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -211,6 +195,13 @@
   
   <url>
     <loc>http://dapaner.top/tags/%E7%88%AC%E8%99%AB/</loc>
+    <lastmod>2022-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://dapaner.top/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA-%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2022-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -254,14 +245,14 @@
 
   
   <url>
-    <loc>http://dapaner.top/categories/iOS/</loc>
+    <loc>http://dapaner.top/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://dapaner.top/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>http://dapaner.top/categories/iOS/</loc>
     <lastmod>2022-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
