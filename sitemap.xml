@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dapaner.top/2022/04/17/%E4%BE%AF%E6%8D%B7c-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/</loc>
+    
+    <lastmod>2022-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dapaner.top/2022/04/17/UML-%E7%B1%BB%E5%9B%BE/</loc>
+    
+    <lastmod>2022-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dapaner.top/2022/04/17/C++%E7%9A%84pImpl/</loc>
+    
+    <lastmod>2022-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://dapaner.top/2022/04/12/%E4%BE%AF%E6%8D%B7c-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</loc>
     
     <lastmod>2022-04-17</lastmod>
@@ -285,6 +312,20 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://dapaner.top/tags/pImpl/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://dapaner.top/tags/UML/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -331,6 +372,13 @@
   
   <url>
     <loc>http://dapaner.top/categories/C/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://dapaner.top/categories/UML/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

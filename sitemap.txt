@@ -1,3 +1,6 @@
+http://dapaner.top/2022/04/17/%E4%BE%AF%E6%8D%B7c-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/
+http://dapaner.top/2022/04/17/UML-%E7%B1%BB%E5%9B%BE/
+http://dapaner.top/2022/04/17/C++%E7%9A%84pImpl/
 http://dapaner.top/2022/04/12/%E4%BE%AF%E6%8D%B7c-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/
 http://dapaner.top/2022/04/10/%E4%BE%AF%E6%8D%B7c-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/
 http://dapaner.top/2022/04/10/%E4%BE%AF%E6%8D%B7c++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%20%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/
@@ -32,6 +35,8 @@ http://dapaner.top/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/
 http://dapaner.top/tags/CSAPP-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/
 http://dapaner.top/tags/%E9%9A%8F%E7%AC%94/
 http://dapaner.top/tags/C/
+http://dapaner.top/tags/pImpl/
+http://dapaner.top/tags/UML/
 http://dapaner.top/categories/%E7%AE%97%E6%B3%95/
 http://dapaner.top/categories/iOS/
 http://dapaner.top/categories/Python/
@@ -39,3 +44,4 @@ http://dapaner.top/categories/%E6%9D%82/
 http://dapaner.top/categories/%E5%9F%BA%E7%A1%80%E8%83%BD%E5%8A%9B/
 http://dapaner.top/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/
 http://dapaner.top/categories/C/
+http://dapaner.top/categories/UML/
